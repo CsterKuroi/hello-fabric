@@ -47,7 +47,6 @@ go version
 ```
 git clone https://github.com/hyperledger/fabric.git
 cd fabric
-git checkout v1.1.0
 ```
 
 6. fabric binary & images
