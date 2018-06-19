@@ -34,7 +34,7 @@ git version
 
 4. golang
 ```
-wget https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
+wget https://storage.googleapis.com/golang/go1.10.1.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.10.1.linux-amd64.tar.gz
 sudo vim /etc/profile
   export PATH=$PATH:/usr/local/go/bin
