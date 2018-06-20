@@ -52,7 +52,7 @@ cd fabric
 6. fabric binary & images
 ```
 cd fabric/scripts
-bootstrap.sh 1.1.0 -s
+bootstrap.sh -s
 (very slow as Great Firewall,try another way to download)
 ```
 
