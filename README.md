@@ -6,6 +6,8 @@
 ```
 curl -sSL https://get.daocloud.io/docker | sh
 docker -v
+
+systemctl enable docker
 ```
 
 2. docker-compose
