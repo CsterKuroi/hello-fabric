@@ -6,7 +6,7 @@ cd $GOPATH/src/github.com/hyperledger/fabric
 make test-cmd
 ```
 
-get somes like
+  get some flags like
 
 > -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.1.1-snapshot-ff5e861 -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.4.6 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.Experimental=true"
 
