@@ -49,12 +49,13 @@ peer channel join -b originchan.block
 ```
 cd examples/chaincode/go/chaincode_example02
 go build -o example02
-CORE_CHAINCODE_LOGLEVEL=debug CORE_PEER_ADDRESS=127.0.0.1:7052 CORE_CHAINCODE_ID_NAME=mycc:0 ./example02
+CORE_CHAINCODE_LOGLEVEL=debug CORE_PEER_ADDRESS=127.0.0.1:7052 CORE_CHAINCODE_ID_NAME=mycc:1.0 ./example02
 ```
 
 8. Use the chaincode
 ```
-peer chaincode instantiate -n mycc -v 0 -c '{"Args":["init","a","100","b","200"]}' -o 127.0.0.1:7050 -C originchan
+peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02
+peer chaincode instantiate -n mycc -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -o 127.0.0.1:7050 -C originchan
 peer chaincode invoke -n mycc -c '{"Args":["invoke","a","b","10"]}' -o 127.0.0.1:7050 -C originchan
 peer chaincode query -n mycc -c '{"Args":["query","a"]}' -o 127.0.0.1:7050 -C originchan
 ```
