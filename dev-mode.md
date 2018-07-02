@@ -30,7 +30,7 @@ source /etc/profile
 
 4. Start the orderer
 ```
-orderer
+ORDERER_GENERAL_GENESISPROFILE=SampleDevModeSolo orderer
 ```
 
 5. Start the peer 
