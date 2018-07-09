@@ -64,3 +64,19 @@ cd fabric/examples/e2e_cli
 network_setup.sh up
 (release binary to the right dir)
 ```
+
+
+## Quick Start of e2e-cli on centos7 (multi machine)
+
+```
+docker-compose -f docker-compose-orderer.yaml up
+docker-compose -f docker-compose-peer1.yaml up
+docker-compose -f docker-compose-peer2.yaml up
+docker-compose -f docker-compose-peer3.yaml up
+docker-compose -f docker-compose-peer4.yaml up
+```
+
+```
+docker exec -it cli bash
+./scripts/script.sh mychannel
+```
