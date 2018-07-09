@@ -1,6 +1,6 @@
 # hello-fabric
 
-## Quick Start of e2e-cli on centos7
+## Quick Start of e2e-cli on centos7 (single machine)
 
 1. docker
 ```
