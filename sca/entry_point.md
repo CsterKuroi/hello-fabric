@@ -106,3 +106,14 @@ vendor/github.com/Shopify/sarama/tools/kafka-console-partitionconsumer/kafka-con
 vendor/github.com/Shopify/sarama/tools/kafka-console-producer/kafka-console-producer.go:29:func main() {
 vendor/github.com/Shopify/sarama/tools/kafka-console-consumer/kafka-console-consumer.go:27:func main() {
 ```
+
+```
+common/tools/idemixgen/idemixgen.go:46:func main() {
+common/tools/configtxlator/main.go:67:func main() {
+common/tools/configtxgen/main.go:208:func main() {
+common/tools/cryptogen/main.go:215:func main() {
+
+orderer/main.go:14:func main() {
+
+peer/main.go:66:func main() {
+```
