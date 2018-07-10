@@ -6,7 +6,8 @@
 grep "func main" * -r -n --include=*.go > func_main.txt
 ```
 
-> common/tools/idemixgen/idemixgen.go:46:func main() {
+```
+common/tools/idemixgen/idemixgen.go:46:func main() {
 common/tools/configtxlator/main.go:67:func main() {
 common/tools/configtxgen/main.go:208:func main() {
 common/tools/cryptogen/main.go:215:func main() {
@@ -104,3 +105,4 @@ vendor/github.com/Shopify/sarama/examples/http_server/http_server.go:29:func mai
 vendor/github.com/Shopify/sarama/tools/kafka-console-partitionconsumer/kafka-console-partitionconsumer.go:25:func main() {
 vendor/github.com/Shopify/sarama/tools/kafka-console-producer/kafka-console-producer.go:29:func main() {
 vendor/github.com/Shopify/sarama/tools/kafka-console-consumer/kafka-console-consumer.go:27:func main() {
+```
