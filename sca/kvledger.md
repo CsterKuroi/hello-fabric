@@ -8,3 +8,16 @@ leveldb的基本操作:
 3. 获取键值对，data,_ := db.Get([]byte("key1"),nil)。获取key1对应的值。
 4. 遍历数据库，iter := db.NewIterator(nil, nil)，for iter.Next(){ fmt.Printf("key=%s,value=%s\n",iter.Key(),iter.Value()) }，iter.Release()。作用就是建立迭代器iter，然后依次遍历数据库中所有的数据并打印键和值，最后释放迭代器iter。
 5. 关闭数据库，db.Close()。
+
+## production
+* /var/hyperledger/production(core.yaml定义的flieSystemPath的值) 
+  * /ledgersData //账本目录 
+    * /ledgerProvider //ledgerID数据库目录
+    * /chains //block块存储数据库目录 
+      * /index //block索引数据库目录
+      * /chains 
+        * /账本ID1
+        * /账本ID2
+        * /…
+    * /stateLeveldb //状态数据库目录
+    * /historyLeveldb //历史数据库目录
