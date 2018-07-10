@@ -21,3 +21,63 @@ leveldb的基本操作:
         * /…
     * /stateLeveldb //状态数据库目录
     * /historyLeveldb //历史数据库目录
+
+```
+.
+├── chaincodes
+│   └── mycc.1.0
+├── ledgersData
+│   ├── chains
+│   │   ├── chains
+│   │   │   └── originchan
+│   │   │       └── blockfile_000000
+│   │   └── index
+│   │       ├── 000001.log
+│   │       ├── CURRENT
+│   │       ├── LOCK
+│   │       ├── LOG
+│   │       └── MANIFEST-000000
+│   ├── historyLeveldb
+│   │   ├── 000001.log
+│   │   ├── CURRENT
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000000
+│   ├── ledgerProvider
+│   │   ├── 000001.log
+│   │   ├── CURRENT
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000000
+│   ├── pvtdataStore
+│   │   ├── 000001.log
+│   │   ├── CURRENT
+│   │   ├── LOCK
+│   │   ├── LOG
+│   │   └── MANIFEST-000000
+│   └── stateLeveldb
+│       ├── 000001.log
+│       ├── CURRENT
+│       ├── LOCK
+│       ├── LOG
+│       └── MANIFEST-000000
+├── orderer
+│   ├── chains
+│   │   ├── originchan
+│   │   │   └── blockfile_000000
+│   │   └── testchainid
+│   │       └── blockfile_000000
+│   └── index
+│       ├── 000001.log
+│       ├── CURRENT
+│       ├── LOCK
+│       ├── LOG
+│       └── MANIFEST-000000
+├── peer.pid
+└── transientStore
+    ├── 000001.log
+    ├── CURRENT
+    ├── LOCK
+    ├── LOG
+    └── MANIFEST-000000
+```
