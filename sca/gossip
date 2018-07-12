@@ -1,0 +1,54 @@
+# gossip
+
+## interface and impl
+
+```
+//gossip接口，在fabric/gossip/gossip/gossip.go中定义
+type Gossip interface {
+    // 发送一个消息到远程的各个peer
+    Send(msg *proto.GossipMessage, peers ...*comm.RemotePeer)
+    //返回所有被认为是活的网络成员
+    Peers() []discovery.NetworkMember
+    //返回所有被认为是活的且订阅了ChainID频道的网络成员
+    PeersOfChannel(common.ChainID) []discovery.NetworkMember
+    //更新自身发现层的metadata
+    UpdateMetadata(metadata []byte)
+    //更新自身metadata，该metadata是peer出版给其他peer的自身频道相关的状态数据
+    UpdateChannelMetadata(metadata []byte, chainID common.ChainID)
+    //发送一个消息给网络中的其他peer
+    Gossip(msg *proto.GossipMessage)
+    //返回一个针对由其他匹配一个明确断言的结点发送的消息的专用只读频道
+    Accept(...) (<-chan *proto.GossipMessage, <-chan proto.ReceivedMessage)
+    //使一个绯闻实例加入频道
+    JoinChan(joinMsg api.JoinChannelMessage, chainID common.ChainID)
+    //验证可疑peer点的身份，若发现该可疑peer是无效的，则关闭与此peer的连接
+    SuspectPeers(s api.PeerSuspector)
+    //停止这个gossip实例
+    Stop()
+}
+//gossip实例，在/fabric/gossip/gossip/gossipimpl.go中定义
+type gossipServiceImpl struct {
+    selfIdentity          api.PeerIdentityType //自身身份标识
+    includeIdentityPeriod time.Time
+    certStore             *certStore           //certStore模块
+    idMapper              identity.Mapper      //idMapper模块
+    presumedDead          chan common.PKIidType
+    disc                  discovery.Discovery  //discovery模块
+    comm                  comm.Comm            //comm模块
+    incTime               time.Time
+    selfOrg               api.OrgIdentityType  //自身组织标识
+    *comm.ChannelDeMultiplexer                 //多路分配器
+    logger            *logging.Logger
+    stopSignal        *sync.WaitGroup          //等待组
+    conf              *Config                  //配置
+    toDieChan         chan struct{}            //停止通道
+    stopFlag          int32                    //停止标识
+    emitter           batchingEmitter          //emitter模块
+    discAdapter       *discoveryAdapter        //discovery适配器
+    secAdvisor        api.SecurityAdvisor      //安全辅助
+    chanState         *channelState            //chanState模块
+    disSecAdap        *discoverySecurityAdapter//discovery安全辅助适配器
+    mcs               api.MessageCryptoService //消息加密服务
+    stateInfoMsgStore msgstore.MessageStore    //消息存储模块
+}
+```
