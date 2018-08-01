@@ -28,6 +28,11 @@ unzip v2.3.0.zip
 cd git-2.3.0
 make prefix=/usr/local/git all
 sudo make prefix=/usr/local/git install
+
+sudo vim /etc/profile
+  export PATH=/usr/local/git/bin:$PATH
+source /etc/profile
+ 
 git version
 ```
 
