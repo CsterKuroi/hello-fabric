@@ -22,15 +22,12 @@ docker-compose -v
 
 3. git
 ```
-sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
+sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker htop tree
 wget https://github.com/git/git/archive/v2.3.0.zip
 unzip v2.3.0.zip
 cd git-2.3.0
 make prefix=/usr/local/git all
 sudo make prefix=/usr/local/git install
-sudo vim /etc/profile
-  export PATH=/usr/local/git/bin:$PATH
-source /etc/profile
 git version
 ```
 
