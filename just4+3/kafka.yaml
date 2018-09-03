@@ -1,0 +1,30 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  kafka0:
+    container_name: kafka0
+    hostname: kafka0
+    image: hyperledger/fabric-kafka
+    restart: always
+    environment:
+      - KAFKA_BROKER_ID=0
+      - KAFKA_MIN_INSYNC_REPLICAS=2
+      - KAFKA_DEFAULT_REPLICATION_FACTOR=3
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper0:2181,zookeeper1:2181,zookeeper2:2181
+      - KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+    ports:
+      - "9092:9092"
+    extra_hosts:
+      - "zookeeper0:172.169.222.156"
+      - "zookeeper1:172.169.222.157"
+      - "zookeeper2:172.169.222.161"
+      - "kafka0:172.169.222.156"
+      - "kafka1:172.169.222.157"
+      - "kafka2:172.169.222.161"
+      - "kafka3:172.169.222.162"

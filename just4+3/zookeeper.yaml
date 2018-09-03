@@ -1,0 +1,36 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+# 
+# ZooKeeper的基本运转流程：
+# 1、选举Leader。
+# 2、同步数据。
+# 3、选举Leader过程中算法有很多，但要达到的选举标准是一致的。
+# 4、Leader要具有最高的执行ID，类似root权限。
+# 5、集群中大多数的机器得到响应并follow选出的Leader。
+#
+
+version: '2'
+
+services:
+
+  zookeeper0:
+    container_name: zookeeper0
+    hostname: zookeeper0
+    image: hyperledger/fabric-zookeeper
+    restart: always
+    environment:
+      - ZOO_MY_ID=1
+      - ZOO_SERVERS=server.1=zookeeper0:2888:3888 server.2=zookeeper1:2888:3888 server.3=zookeeper2:2888:3888 quorumListenOnAllIPs=true
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+    extra_hosts:
+      - "zookeeper0:172.169.222.156"
+      - "zookeeper1:172.169.222.157"
+      - "zookeeper2:172.169.222.161"
+      - "kafka0:172.169.222.156"
+      - "kafka1:172.169.222.157"
+      - "kafka2:172.169.222.161"
+      - "kafka3:172.169.222.162"
