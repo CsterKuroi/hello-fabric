@@ -22,7 +22,7 @@ docker-compose -v
 
 3. git
 ```
-sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker htop tree
+sudo yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker htop tree vim
 wget https://github.com/git/git/archive/v2.3.0.zip
 unzip v2.3.0.zip
 cd git-2.3.0
